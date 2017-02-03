@@ -7,6 +7,7 @@ class Mapa
 			@cuadricula << (0...8).map{}
 		end
 		@cuadricula[0][0] = "P"
+		@cuadricula[7][7] = "T"
 	end
 	
 	def ejecutar(comando)
