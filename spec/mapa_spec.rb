@@ -76,4 +76,15 @@ describe Mapa do
 		mapa.ejecutar "a"
 		expect(mapa.juego_terminado?).to be true
 	end	
+
+	it "Cuando escojo mapa nivel 2, el mapa debe tener un obstaculo en 0,3" do
+		mapa = Mapa.new(2)
+		expect(mapa.cuadricula[0][3]).to eq "0"
+	end
+
+	it "Si el personaje en el nivel 2 ejecuta aaa, el personaje debe quedar en la casilla 0,2 debido a que hay un obstaculo" do
+		mapa = Mapa.new(2)
+		mapa.ejecutar "aaa"
+		expect(mapa.cuadricula[0][2]).to be_instance_of Personaje
+	end
 end

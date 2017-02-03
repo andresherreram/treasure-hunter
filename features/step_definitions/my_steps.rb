@@ -29,3 +29,7 @@ end
 When(/^ingreso "([^"]*)" en "([^"]*)"$/) do |comando, campo|
   fill_in(campo, :with => comando)
 end
+
+Given(/^iniciado el juego en nivel (\d+)$/) do |arg1|
+	visit '/game?level=2'
+end

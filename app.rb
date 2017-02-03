@@ -7,7 +7,7 @@ get '/' do
 end
 
 get '/game' do
-	session[:mapa] = Mapa.new
+	session[:mapa] = Mapa.new(params[:level] || 1)
 	erb :game
 end
 

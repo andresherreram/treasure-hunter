@@ -26,7 +26,14 @@ class Mapa
 	attr_reader :cuadricula, :personaje
 	attr_reader :current_x, :current_y
 
-	def initialize
+	OBSTACULOS = {
+		1 => [],
+		2 => [[0,3], [3,1]],
+	}
+
+	def initialize level = 1
+		@level = level.to_i
+
 		@current_x = 0
 		@current_y = 0
 
@@ -39,6 +46,10 @@ class Mapa
 		end
 		@cuadricula[0][7] = "T"
 		@cuadricula[0][0] = Personaje.new
+
+		OBSTACULOS[@level].each do |x,y|
+			@cuadricula[x][y] = "0"
+		end
 
 		@juego_terminado = false
 	end
@@ -105,6 +116,10 @@ class Mapa
 		end
 
 		if [next_x, next_y].min < 0 || [next_x, next_y].max > 7
+			return
+		end
+
+		if @cuadricula[next_y][next_x] == "0"
 			return
 		end
 
