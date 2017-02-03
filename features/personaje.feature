@@ -5,4 +5,4 @@ Feature:
 
 Scenario: Debo ver el personaje en el punto 0,0 como texto
 	Given iniciado el juego
-	Then debo ver "<td>></td>"
+	Then en la posicion 0,0 debo ver ">"

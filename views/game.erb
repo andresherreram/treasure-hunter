@@ -10,10 +10,10 @@
 		</div>
 		<div>
 			<table class="table table-bordered">
-				<% session[:mapa].cuadricula.each do |linea| %>
+				<% session[:mapa].cuadricula.each_with_index do |linea, i| %>
 				<tr>
-					<% linea.each do |col| %>
-					<td><%= col %></td>
+					<% linea.each_with_index do |col, j| %>
+					<td class="pos-<%= "#{i}-#{j}"%>"><%= col %></td>
 					<% end %>
 				</tr>
 				<% end %>

@@ -6,4 +6,4 @@ Feature: Ver tesoro
 Scenario:
 	Given iniciado el juego
 	And debo ver cuadricula 8x8
-	Then en la posicion 7,7 debo ver "T" 
+	Then en la posicion 0,7 debo ver "T" 
