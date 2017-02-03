@@ -9,4 +9,8 @@ class Mapa
 		@cuadricula[0][0] = "P"
 	end
 	
+	def ejecutar(comando)
+		@cuadricula[0][0] = nil
+		@cuadricula[0][1] = "P"
+	end
 end
