@@ -43,9 +43,7 @@ describe Mapa do
 	end
 
 	it "Cuando el personaje esta en 0,1 y avanza a la izquierda debe quedar en 0,0" do
-		mapa.ejecutar "a"
-		mapa.personaje.direccion = :izquierda
-		mapa.ejecutar "a"
+		mapa.ejecutar "adda"
 
 		expect(mapa.cuadricula[0][1]).to be nil
 		expect(mapa.cuadricula[0][0]).to be_instance_of Personaje
@@ -69,5 +67,13 @@ describe Mapa do
 
 		expect(mapa.cuadricula[1][1]).to be_instance_of Personaje
 	end
-	
+
+	it "Cuando inicio el mapa debo debo poder ver que el juego no ha terminado" do
+		expect(mapa.juego_terminado?).to be false
+	end	
+
+	it "Cuando ejecuto una accion debo ver que el juego esta terminado" do
+		mapa.ejecutar "a"
+		expect(mapa.juego_terminado?).to be true
+	end	
 end

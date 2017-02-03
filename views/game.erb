@@ -33,6 +33,9 @@
 		</p>
 	</div>
 	<% if session[:mapa].encontro_tesoro? %>
-	<h1>Atrapaste el tesoro!!</h1>
+		<h1>Atrapaste el tesoro!!</h1>
+	<% elsif session[:mapa].juego_terminado? %>
+		<h1>Perdiste!!!</h1>
+		<a class="btn btn-danger" href="/">Reiniciar</a>
 	<% end %>
 </div>
