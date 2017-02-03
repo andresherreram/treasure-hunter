@@ -32,7 +32,7 @@ class Mapa
 	}
 
 	TESOROS = {
-		1 => [[7, 0]],
+		1 => [[0, 7]],
 		2 => [[7,7]]
 	}
 
@@ -41,9 +41,6 @@ class Mapa
 
 		@current_x = 0
 		@current_y = 0
-
-		@tesoro_x = 7
-		@tesoro_y = 0
 
 		@cuadricula = []
 		8.times do
@@ -58,8 +55,8 @@ class Mapa
 
 		TESOROS[@level].each do |x,y|
 			@cuadricula[x][y] = "T"
-			@tesoro_x = x
-			@tesoro_y = y
+			@tesoro_x = y
+			@tesoro_y = x
 		end
 
 		@juego_terminado = false
