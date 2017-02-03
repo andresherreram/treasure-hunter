@@ -31,6 +31,11 @@ class Mapa
 		2 => [[0,3], [3,1]],
 	}
 
+	TESOROS = {
+		1 => [[7, 0]],
+		2 => [[7,7]]
+	}
+
 	def initialize level = 1
 		@level = level.to_i
 
@@ -49,6 +54,12 @@ class Mapa
 
 		OBSTACULOS[@level].each do |x,y|
 			@cuadricula[x][y] = "0"
+		end
+
+		TESOROS[@level].each do |x,y|
+			@cuadricula[x][y] = "T"
+			@tesoro_x = x
+			@tesoro_y = y
 		end
 
 		@juego_terminado = false

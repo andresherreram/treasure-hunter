@@ -8,3 +8,4 @@ Scenario: Cuando P colicione con T gana
 	When ingreso "aaaaaaa" en "campo-de-comandos"
 	And presione el boton "Ejecutar"
 	Then debo ver "Atrapaste el tesoro!!"
+	Then debo ver "Siguiente Nivel"
