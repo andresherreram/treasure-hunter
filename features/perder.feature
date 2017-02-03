@@ -12,3 +12,9 @@ Scenario: perder el juego
 	When ingreso "a" en "campo-de-comandos"
 	And presione el boton "Ejecutar"
 	Then debo ver "Perdiste!!!"
+
+Scenario: reiniciar despues de perder
+	Given iniciado el juego
+	When ingreso "a" en "campo-de-comandos"
+	And presione el boton "Ejecutar"
+	Then debo ver "Reiniciar"
