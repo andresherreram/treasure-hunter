@@ -4,8 +4,11 @@
 		<div>
 			<h2>Campo de Comandos</h2>
 			<form method="post" action="/game">
-				<input type="text" name="campo-de-comandos" value="">
-				<input type="submit" value="Ejecutar">
+				<input id="campo-de-comandos" type="text" name="campo-de-comandos" value="<%= session['comandos']%>">
+				<input type="submit" value="Ejecutar"><hr/>
+				<button name="comandos" value="i">Izquierda</button>
+				<button name="comandos" value="d">Derecha</button>
+				<button name="comandos" value="a">Avanzar</button>
 			</form>
 		</div>
 		<div>

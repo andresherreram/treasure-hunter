@@ -29,3 +29,7 @@ end
 When(/^ingreso "([^"]*)" en "([^"]*)"$/) do |comando, campo|
   fill_in(campo, :with => comando)
 end
+
+Then(/^En el campo de comando aparece "([^"]*)"$/) do |comando|
+  expect(find_field("campo-de-comandos").value).to eq comando
+end
