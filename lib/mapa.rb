@@ -1,6 +1,6 @@
 class Personaje
 
-	attr_reader :direccion
+	attr_accessor :direccion
 
 	def initialize
 		@direccion = :derecha
@@ -23,8 +23,8 @@ class Personaje
 end
 
 class Mapa
-	attr_reader :cuadricula
-
+	attr_reader :cuadricula, :personaje
+	attr_reader :current_x, :current_y
 
 	def initialize
 		@current_x = 0
@@ -40,12 +40,38 @@ class Mapa
 		@cuadricula[0][7] = "T"
 		@cuadricula[0][0] = Personaje.new
 	end
+
+	def personaje
+		return @cuadricula[@current_y][@current_x]		
+	end
 	
 	def ejecutar(comandos)
 		comandos.each_char do |comando|
 			case comando
 			when "a"
 				avanzar()
+			when "d"
+				case personaje.direccion
+				when :arriba
+					personaje.direccion = :derecha
+				when :abajo
+					personaje.direccion = :izquierda
+				when :derecha
+					personaje.direccion = :abajo
+				when :izquierda
+					personaje.direccion = :arriba
+				end
+			when "i"
+				case personaje.direccion
+				when :arriba
+					personaje.direccion = :izquierda
+				when :abajo
+					personaje.direccion = :derecha
+				when :derecha
+					personaje.direccion = :arriba
+				when :izquierda
+					personaje.direccion = :abajo
+				end
 			end
 		end
 	end
@@ -56,14 +82,25 @@ class Mapa
 
 	def avanzar
 		personaje = @cuadricula[@current_y][@current_x]
-		old_x, old_y = @current_x, @current_y
+		next_x, next_y = @current_x, @current_y
 
 		case personaje.direccion
 		when :derecha
-			@current_x += 1
+			next_x += 1
+		when :izquierda
+			next_x -= 1
+		when :abajo
+			next_y += 1
+		when :arriba
+			next_y -= 1
 		end
 
-		@cuadricula[old_y][old_x] = nil
-		@cuadricula[@current_y][@current_x] = personaje
+		if [next_x, next_y].min < 0 || [next_x, next_y].max > 7
+			return
+		end
+
+		@cuadricula[@current_y][@current_x] = nil
+		@cuadricula[next_y][next_x] = personaje
+		@current_x, @current_y = next_x, next_y
 	end
 end

@@ -41,4 +41,33 @@ describe Mapa do
 		expect(mapa.cuadricula[0][7]).to be_instance_of Personaje
 		expect(mapa.encontro_tesoro?).to eq true
 	end
+
+	it "Cuando el personaje esta en 0,1 y avanza a la izquierda debe quedar en 0,0" do
+		mapa.ejecutar "a"
+		mapa.personaje.direccion = :izquierda
+		mapa.ejecutar "a"
+
+		expect(mapa.cuadricula[0][1]).to be nil
+		expect(mapa.cuadricula[0][0]).to be_instance_of Personaje
+		
+	end
+
+	it "Cuando el personaje esta en 0,0 y avanza a la izquierda el personaje no debe salir del mapa" do
+		mapa.personaje.direccion = :izquierda
+		mapa.ejecutar "a"
+
+		expect(mapa.cuadricula[0][0]).to be_instance_of Personaje
+	end
+
+	it "Cuando el personaje esta en 0,0 y ejecuta 'da' el personaje queda en 0,1" do
+		mapa.ejecutar "da"
+		expect(mapa.cuadricula[1][0]).to be_instance_of Personaje
+	end
+
+	it "Cuando el personaje esta en 0,0 y ejecuta 'daia' el personaje queda en 1,1" do
+		mapa.ejecutar "daia"
+
+		expect(mapa.cuadricula[1][1]).to be_instance_of Personaje
+	end
+	
 end
