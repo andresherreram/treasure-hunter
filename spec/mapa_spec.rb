@@ -13,7 +13,7 @@ describe Mapa do
 	end
 
 	it "el personaje esta mirando para abajo" do
-		expect(mapa.cuadricula[0][0].direccion).to eq :abajo
+		expect(mapa.cuadricula[0][0].direccion).to eq :derecha
 
 	end
 
@@ -21,7 +21,7 @@ describe Mapa do
 	it "El personaje avanza a 0,1 cuando ingresa el comando avanzar" do		
 		mapa.ejecutar "a"
 		expect(mapa.cuadricula[0][0]).to eq nil
-		expect(mapa.cuadricula[0][1]).to eq "P"
+		expect(mapa.cuadricula[0][1]).to be_instance_of Personaje
 	end
 
 end
