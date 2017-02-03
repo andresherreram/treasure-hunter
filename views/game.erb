@@ -1,16 +1,18 @@
 <div class="row">
-	<div class="col-md-5 col-md-offset-1">
-		<h1>mapa</h1>
+	<div class="col-md-3">
+		<h2>campo de comandos</h2>
 		<div>
-			<h2>Campo de Comandos</h2>
 			<form method="post" action="/game">
 				<input id="campo-de-comandos" type="text" name="campo-de-comandos" value="<%= session['comandos']%>">
-				<input type="submit" value="Ejecutar"><hr/>
-				<button name="comandos" value="i">Izquierda</button>
-				<button name="comandos" value="d">Derecha</button>
-				<button name="comandos" value="a">Avanzar</button>
+				<input class="btn btn-primary" type="submit" value="Ejecutar"><hr/>
+				<button class="btn btn-default" name="comandos" value="i">Izquierda</button>
+				<button class="btn btn-default" name="comandos" value="d">Derecha</button>
+				<button class="btn btn-default" name="comandos" value="a">Avanzar</button>
 			</form>
 		</div>
+	</div>
+	<div class="col-md-6">
+		<h1>mapa</h1>
 		<div>
 			<table class="table table-bordered">
 				<% session[:mapa].cuadricula.each_with_index do |linea, i| %>
@@ -23,7 +25,7 @@
 			</table>
 		</div>
 	</div>
-	<div class="col-md-6">
+	<div class="col-md-3">
 		<h2>instrucciones</h2>
 		<p>
 			Escriba en las instrucciones:
@@ -39,3 +41,13 @@
 		<a class="btn btn-danger" href="/">Reiniciar</a>
 	<% end %>
 </div>
+<style type="text/css">
+	.table tbody tr td {
+		width: 10px;
+		height: 50px;
+		padding: 0px;
+		text-align: center;
+		vertical-align: middle;
+		border-width: 3px;
+	}
+</style>
