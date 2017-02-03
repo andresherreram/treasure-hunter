@@ -40,7 +40,7 @@ class Mapa
 		@cuadricula[0][7] = "T"
 		@cuadricula[0][0] = Personaje.new
 
-		@juego_iniciado = false
+		@juego_terminado = false
 	end
 
 	def personaje
@@ -48,7 +48,9 @@ class Mapa
 	end
 	
 	def ejecutar(comandos)
-		@juego_iniciado = true
+		return if @juego_terminado
+
+		@juego_terminado = true
 		comandos.each_char do |comando|
 			case comando
 			when "a"
@@ -79,8 +81,8 @@ class Mapa
 		end
 	end
 
-	def juego_iniciado?
-		@juego_iniciado
+	def juego_terminado?
+		@juego_terminado
 	end
 
 	def encontro_tesoro?
