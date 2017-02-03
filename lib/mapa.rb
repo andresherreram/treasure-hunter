@@ -49,7 +49,7 @@ class Mapa
 		8.times do
 			@cuadricula << (0...8).map{}
 		end
-		@cuadricula[0][7] = "T"
+
 		@cuadricula[0][0] = Personaje.new
 
 		OBSTACULOS[@level].each do |x,y|
