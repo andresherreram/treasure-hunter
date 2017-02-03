@@ -11,3 +11,7 @@ Scenario: Al iniciar el juego debo ver el mapa
 	Given abri el juego
 	When presione el boton "Jugar"
 	Then debo ver "mapa"
+
+Scenario: En el mapa debo ver una cuadricula 8x8
+	Given iniciado el juego
+	Then debo ver cuadricula 8x8
