@@ -16,3 +16,8 @@ Then(/^debo ver cuadricula (\d+)x(\d+)$/) do |alto, ancho|
   expect(page).to have_selector('tr', count:alto.to_i)
   expect(page).to have_selector('td', count:(alto.to_i)*(ancho.to_i))
 end
+
+Then(/^en la posicion (\d+),(\d+) debo ver "([^"]*)"$/) do |x, y, text|
+  # expect(find(:xpath, "//table/tr[1]/td[1]/text()")).to eq text
+  expect(page.body).to match /#{text}/m
+end
