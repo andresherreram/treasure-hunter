@@ -3,7 +3,7 @@ class Personaje
 	attr_reader :direccion
 
 	def initialize
-		@direccion = :abajo
+		@direccion = :derecha
 	end
 
 	def to_s
@@ -18,6 +18,9 @@ class Mapa
 
 
 	def initialize
+		@current_x = 0
+		@current_y = 0
+
 		@cuadricula = []
 		8.times do
 			@cuadricula << (0...8).map{}
@@ -31,10 +34,17 @@ class Mapa
 		when "a"
 			avanzar()
 		end
-		@cuadricula[0][0] = nil
-		@cuadricula[0][1] = "P"
 	end
 
 	def avanzar
+		personaje = @cuadricula[@current_y][@current_x]
+		old_x, old_y = @current_x, @current_y
+		case personaje.direccion
+		when :derecha
+			@current_x += 1
+		end
+
+		@cuadricula[old_y][old_x] = nil
+		@cuadricula[@current_y][@current_x] = personaje
 	end
 end
