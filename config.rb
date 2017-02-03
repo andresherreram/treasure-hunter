@@ -1,5 +1,6 @@
 
 require 'better_errors'
+require './lib/mapa'
 
 configure :development do
   use BetterErrors::Middleware

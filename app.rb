@@ -6,5 +6,6 @@ get '/' do
 end
 
 get '/game' do
+	session[:mapa] = Mapa.new
 	erb :game
 end

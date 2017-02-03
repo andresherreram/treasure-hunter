@@ -1,5 +1,6 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'mapa'
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new [
   SimpleCov::Formatter::HTMLFormatter,
   SimpleCov::Formatter::Console,
