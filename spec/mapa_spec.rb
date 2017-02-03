@@ -35,4 +35,10 @@ describe Mapa do
 		expect(mapa.cuadricula[0][0]).to eq nil
 		expect(mapa.cuadricula[0][3]).to be_instance_of Personaje
 	end
+
+	it "El personaje avanza 8 pasos y encuentra el tesoro" do		
+		mapa.ejecutar "aaaaaaa"
+		expect(mapa.cuadricula[0][7]).to be_instance_of Personaje
+		expect(mapa.encontro_tesoro?).to eq true
+	end
 end

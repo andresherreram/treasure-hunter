@@ -21,11 +21,14 @@ class Mapa
 		@current_x = 0
 		@current_y = 0
 
+		@tesoro_x = 7
+		@tesoro_y = 0
+
 		@cuadricula = []
 		8.times do
 			@cuadricula << (0...8).map{}
 		end
-		@cuadricula[7][7] = "T"
+		@cuadricula[0][7] = "T"
 		@cuadricula[0][0] = Personaje.new
 	end
 	
@@ -36,6 +39,10 @@ class Mapa
 				avanzar()
 			end
 		end
+	end
+
+	def encontro_tesoro?
+		@current_x == @tesoro_x && @current_y == @tesoro_y
 	end
 
 	def avanzar
