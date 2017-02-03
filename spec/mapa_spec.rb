@@ -69,5 +69,13 @@ describe Mapa do
 
 		expect(mapa.cuadricula[1][1]).to be_instance_of Personaje
 	end
-	
+
+	it "Cuando inicio el mapa debo debo poder ver que el juego no ha iniciado" do
+		expect(mapa.juego_iniciado?).to be false
+	end	
+
+	it "Cuando ejecuto una accion debo ver que el juego esta iniciado" do
+		mapa.ejecutar "a"
+		expect(mapa.juego_iniciado?).to be true
+	end	
 end

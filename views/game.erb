@@ -31,5 +31,7 @@
 	</div>
 	<% if session[:mapa].encontro_tesoro? %>
 	<h1>Atrapaste el tesoro!!</h1>
+	<% elsif session[:mapa].juego_iniciado? %>
+		Perdiste!!!
 	<% end %>
 </div>
