@@ -9,8 +9,14 @@ describe Mapa do
 	end
 
 	it "el personaje esta en 0,0" do		
-		expect(mapa.cuadricula[0][0]).to eq "P"
+		expect(mapa.cuadricula[0][0]).to_not eq nil
 	end
+
+	it "el personaje esta mirando para abajo" do
+		expect(mapa.cuadricula[0][0].direccion).to eq :abajo
+
+	end
+
 
 	it "El personaje avanza a 0,1 cuando ingresa el comando avanzar" do		
 		mapa.ejecutar "a"
