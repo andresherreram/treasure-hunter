@@ -5,6 +5,6 @@ get '/' do
 	erb :start
 end
 
-post '/game' do
-	"mapa"
+get '/game' do
+	erb :game
 end
