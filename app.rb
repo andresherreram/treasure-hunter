@@ -6,9 +6,5 @@ get '/' do
 end
 
 get '/game' do
-	"mapa instrucciones"
-end
-
-post '/game' do
-	"mapa"
+	erb :game
 end
