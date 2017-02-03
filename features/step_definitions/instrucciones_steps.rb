@@ -4,6 +4,6 @@ Given(/^iniciado el juego$/) do
 end
 
 Then(/^debo ver las instrucciones$/) do
-  expect(page.body).to match /#{'Instrucciones'}/m
+  expect(page.body).to match /Instrucciones/m
 end
 

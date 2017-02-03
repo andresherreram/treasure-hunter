@@ -5,4 +5,4 @@ Feature: Mostrar instrucciones
 
 Scenario: Ver las instrucciones
 	Given iniciado el juego
-	Then debo ver las instrucciones
+	Then debo ver "instrucciones"
