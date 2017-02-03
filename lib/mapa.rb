@@ -7,7 +7,16 @@ class Personaje
 	end
 
 	def to_s
-		"P"
+		case @direccion
+		when :derecha
+			return ">"
+		when :izquierda
+			return "<"
+		when :abajo
+			return "V"
+		when :arriba
+			return "^"
+		end
 	end
 
 	alias :inspect :to_s
@@ -48,6 +57,7 @@ class Mapa
 	def avanzar
 		personaje = @cuadricula[@current_y][@current_x]
 		old_x, old_y = @current_x, @current_y
+
 		case personaje.direccion
 		when :derecha
 			@current_x += 1
