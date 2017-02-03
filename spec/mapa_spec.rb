@@ -24,4 +24,15 @@ describe Mapa do
 		expect(mapa.cuadricula[0][1]).to be_instance_of Personaje
 	end
 
+	it "El personaje avanza dos pasos cuando se entra aa" do
+		mapa.ejecutar "aa"
+		expect(mapa.cuadricula[0][0]).to eq nil
+		expect(mapa.cuadricula[0][2]).to be_instance_of Personaje
+	end
+
+	it "El personaje avanza dos pasos cuando se entra aaa" do
+		mapa.ejecutar "aaa"
+		expect(mapa.cuadricula[0][0]).to eq nil
+		expect(mapa.cuadricula[0][3]).to be_instance_of Personaje
+	end
 end

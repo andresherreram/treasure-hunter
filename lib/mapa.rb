@@ -29,10 +29,12 @@ class Mapa
 		@cuadricula[0][0] = Personaje.new
 	end
 	
-	def ejecutar(comando)
-		case comando
-		when "a"
-			avanzar()
+	def ejecutar(comandos)
+		comandos.each_char do |comando|
+			case comando
+			when "a"
+				avanzar()
+			end
 		end
 	end
 
