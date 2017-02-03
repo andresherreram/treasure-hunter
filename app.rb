@@ -8,12 +8,19 @@ end
 
 get '/game' do
 	session[:mapa] = Mapa.new(params[:level] || 1)
+	session["comandos"] = ""
+
 	erb :game
 end
 
 post '/game' do
-	comando = params['campo-de-comandos']
-	session[:mapa].ejecutar(comando)
+	if params['comandos']
+		session["comandos"] += params['comandos']
+	else
+		comando = params['campo-de-comandos']
+		session[:mapa].ejecutar(comando)
+		session['comandos'] = ''
+	end
 
 	erb :game
 end

@@ -33,3 +33,8 @@ end
 Given(/^iniciado el juego en nivel (\d+)$/) do |arg1|
 	visit '/game?level=2'
 end
+
+Then(/^En el campo de comando aparece "([^"]*)"$/) do |comando|
+  expect(find_field("campo-de-comandos").value).to eq comando
+end
+
